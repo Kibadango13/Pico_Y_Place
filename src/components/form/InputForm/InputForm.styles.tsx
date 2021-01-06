@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { palette } from "styles/util/variables";
+import { fonts, palette } from "styles/util/variables";
 
 import { InputFormStyledProps as Props } from "./InputForm.types";
 
@@ -7,6 +7,19 @@ const InputFormStyled = styled.div<Props>`
   display: flex;
   flex-direction: column;
   margin-bottom: 0.8rem;
+  .InputForm {
+    &__text {
+      padding: 0.2rem 1.5rem;
+      background-color: "red";
+      min-width: 8rem;
+      border-radius: 2rem;
+      color: "white";
+      font-family: ${props => fonts.primary};
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 0.05rem;
+    }
+  }
 
   input {
     width: 43.4rem;

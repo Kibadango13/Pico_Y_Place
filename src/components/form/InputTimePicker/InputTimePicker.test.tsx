@@ -1,10 +1,10 @@
 import React from "react";
 import { render } from "setupTests";
 
-import InputForm from "./InputForm";
+import InputTimePicker from "./InputTimePicker";
 
-describe("InputForm", () => {
+describe("InputTimePicker", () => {
   it("renders with default props", () => {
-    render(<InputForm />);
+    render(<InputTimePicker />);
   });
 });

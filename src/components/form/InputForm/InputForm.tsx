@@ -5,9 +5,11 @@ import Styles from "./InputForm.styles";
 import { InputFormProps as Props } from "./InputForm.types";
 
 const InputForm: React.FC<Props> = props => {
+  const { labelText } = props;
   return (
     <Styles className="InputForm">
       <div className="form-control__wrapper">
+        <div className="InputForm__text">{labelText}</div>
         <InputMask
           autoComplete="off"
           type={props.type}

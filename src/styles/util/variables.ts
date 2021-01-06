@@ -33,7 +33,7 @@ export const palette = {
   white: ["#FFFFFF", "rgba(255, 255, 255, 0.6);"],
   blue: ["#0057B8", "#00ADEE"]
 };
-const fonts = {
+export const fonts = {
   primary: "'Montserrat', sans-serif"
 };
 

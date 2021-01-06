@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { fonts } from "styles/util/variables";
 
-import { InputDatePickerStyledProps as Props } from "./InputDatePicker.types";
+import { InputTimePickerStyledProps as Props } from "./InputTimePicker.types";
 
-const InputDatePickerStyled = styled.div<Props>`
+const InputTimePickerStyled = styled.div<Props>`
   margin: 4rem 0rem;
-  .InputDatePicker {
+  .InputTimePicker {
     &__text {
       padding: 0.2rem 1.5rem;
       background-color: "red";
@@ -32,4 +32,4 @@ const InputDatePickerStyled = styled.div<Props>`
   }
 `;
 
-export default InputDatePickerStyled;
+export default InputTimePickerStyled;

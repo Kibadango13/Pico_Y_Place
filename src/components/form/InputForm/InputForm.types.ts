@@ -6,12 +6,13 @@ export interface InputFormProps {
   type?: string;
   name?: string;
   value?: string;
-  onChange?: () => void;
+  onChange?: any;
   placeholder?: string;
   error?: string;
   mask?: any;
   readonly?: boolean;
   disabled?: boolean;
+  labelText?: string;
 }
 
 // Styled Component Props
