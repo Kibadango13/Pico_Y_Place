@@ -1,23 +1,27 @@
 import React from "react";
-import { DatePicker } from "antd";
+import { ConfigProvider, DatePicker } from "antd";
 
 import Styles from "./InputDatePicker.styles";
 import { InputDatePickerProps as Props } from "./InputDatePicker.types";
 
+import locale from "antd/lib/locale/es_ES";
+
 const InputDatePicker: React.FC<Props> = props => {
-  const { labelText, error } = props;
+  const { labelText, error, onChange } = props;
 
   return (
     <Styles className="InputDatePicker">
       <div className="form-control__wrapper">
         <div className="InputDatePicker__text">{labelText}</div>
-        <DatePicker
-          format="DD/MM/YYYY"
-          onChange={() => {}}
-          className="InputDatePicker__picker"
-        />
+        <ConfigProvider locale={locale}>
+          <DatePicker
+            format="DD/MM/YYYY"
+            onChange={(value: any) => onChange(value)}
+            className="InputDatePicker__picker"
+          />
+        </ConfigProvider>
       </div>
-      {error && <div className="error-message">{error}</div>}
+      {error && <div className="InputDatePicker__error-message">{error}</div>}
     </Styles>
   );
 };

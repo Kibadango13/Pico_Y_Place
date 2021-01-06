@@ -6,6 +6,7 @@ export interface InputTimePickerProps {
   value: string;
   onChange: (value: string) => void;
   error: string;
+  placeholder: string;
 }
 
 // Styled Component Props

@@ -9,6 +9,8 @@ describe("InputDatePicker", () => {
       <InputDatePicker
         labelText="This is the label"
         error="This is the error message"
+        onChange={() => {}}
+        value="This is the value"
       />
     );
   });

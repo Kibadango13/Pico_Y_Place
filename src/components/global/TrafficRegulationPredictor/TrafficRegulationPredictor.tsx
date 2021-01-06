@@ -10,18 +10,25 @@ import InputTimePicker from "components/form/InputTimePicker/InputTimePicker";
 import Styles from "./TrafficRegulationPredictor.styles";
 import { TrafficRegulationPredictorProps as Props } from "./TrafficRegulationPredictor.types";
 import { validateForm } from "./TrafficRegulationPredictor.helpers";
+import { validateTrafficRegulation } from "./TrafficRegulationPredictor.helpers";
 
+const initErrorValues = {
+  licensePlateValidation: "",
+  selectedDateValidation: "",
+  selectedHourValidation: ""
+};
 const TrafficRegulationPredictor: React.FC<Props> = props => {
-  const InitErrorValues = {
-    licensePlateValidation: "",
-    selectedDateValidation: "",
-    selectedHourValidation: ""
-  };
-
   const [licensePlate, setLicensePlate] = useState("");
   const [selectedDate, setSelectedDate] = useState("");
   const [selectedHour, setSelectedHour] = useState("");
-  const [errors, setErrors] = useState(InitErrorValues);
+  const [errors, setErrors] = useState(initErrorValues);
+
+  const licensePlateValidation =
+    errors.licensePlateValidation !== "" ? errors.licensePlateValidation : "";
+  const selectedDateValidation =
+    errors.selectedDateValidation !== "" ? errors.selectedDateValidation : "";
+  const selectedHourValidation =
+    errors.selectedHourValidation !== "" ? errors.selectedHourValidation : "";
 
   const handleOnSubmit = () => {
     const validation = validateForm({
@@ -30,14 +37,30 @@ const TrafficRegulationPredictor: React.FC<Props> = props => {
       selectedHour
     });
     if (validation) {
-      //Validation error
+      //Error Validation
+      setErrors(validation);
       message.error("Validación de los campos");
       return undefined;
     }
+
+    const regulation = validateTrafficRegulation({
+      licensePlate,
+      selectedDate,
+      selectedHour
+    });
+
+    if (!regulation) {
+      message.error("Existen restricciónes para vehiculo");
+      setErrors(initErrorValues);
+      return undefined;
+    }
+
+    message.info("No hay restricciónes para vehiculo");
+    return undefined;
   };
 
   const resetVariables = () => {
-    setErrors(InitErrorValues);
+    setErrors(initErrorValues);
     setLicensePlate("");
     setSelectedDate("");
     setSelectedHour("");
@@ -45,46 +68,33 @@ const TrafficRegulationPredictor: React.FC<Props> = props => {
 
   useEffect(() => {
     // Clean up function
-    return () => {
-      resetVariables();
-    };
+    return resetVariables;
   }, []);
 
   return (
     <Styles className="TrafficRegulationPredictor">
       <InputForm
-        labelText="License plate number"
+        labelText="Placa"
         value={licensePlate}
         name="licensePlate"
         className="PlansModal__input"
         onChange={(event: any) => setLicensePlate(event.target.value)}
         placeholder="Número de identificación del titular"
-        error={
-          errors.licensePlateValidation !== ""
-            ? errors.licensePlateValidation
-            : ""
-        }
-        mask="****-****"
+        error={licensePlateValidation}
+        mask="aaaa-9999"
       />
       <InputDatePicker
         labelText="Date"
-        error={
-          errors.selectedDateValidation !== ""
-            ? errors.selectedDateValidation
-            : ""
-        }
+        error={selectedDateValidation}
         value={selectedDate}
-        onChange={(event: any) => setSelectedDate(event.target.value)}
+        onChange={(event: any) => setSelectedDate(event)}
       />
       <InputTimePicker
         labelText="Hora"
+        placeholder="Seleccionar hora"
         value={selectedHour}
-        error={
-          errors.selectedHourValidation !== ""
-            ? errors.selectedHourValidation
-            : ""
-        }
-        onChange={(event: any) => setSelectedHour(event.target.value)}
+        error={selectedHourValidation}
+        onChange={(event: any) => setSelectedHour(event)}
       />
       <Button
         onClick={() => handleOnSubmit()}

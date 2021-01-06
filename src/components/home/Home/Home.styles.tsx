@@ -9,13 +9,15 @@ const HomeStyled = styled.div<Props>`
   min-height: var(--sizes-page-minHeight);
   display: flex;
   flex-direction: column;
-
   .Home {
     &__header {
     }
 
     &__main {
-      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
     }
 
     &__appointment-button {
@@ -26,7 +28,17 @@ const HomeStyled = styled.div<Props>`
       max-height: 40px;
       color: ${palette.mainBackGroudColor} !important;
     }
-
+    &__image {
+      width: 43.4rem;
+      @media (max-width: 450px) {
+        width: 100%;
+      }
+      img {
+        margin: auto;
+        width: 100%;
+        height: auto;
+      }
+    }
     &__footer {
     }
   }

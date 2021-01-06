@@ -1,10 +1,10 @@
 import styled from "styled-components";
-import { fonts } from "styles/util/variables";
+import { fonts, palette } from "styles/util/variables";
 
 import { InputTimePickerStyledProps as Props } from "./InputTimePicker.types";
 
 const InputTimePickerStyled = styled.div<Props>`
-  margin: 4rem 0rem;
+  margin: 2rem 0rem;
   .InputTimePicker {
     &__text {
       padding: 0.2rem 1.5rem;
@@ -28,6 +28,13 @@ const InputTimePickerStyled = styled.div<Props>`
       @media (max-width: 450px) {
         width: 100%;
       }
+    }
+    &__error-message {
+      color: ${palette.error};
+      font-family: Lato;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-top: 0.4rem;
     }
   }
 `;

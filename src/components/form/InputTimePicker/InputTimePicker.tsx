@@ -5,8 +5,8 @@ import Styles from "./InputTimePicker.styles";
 import { InputTimePickerProps as Props } from "./InputTimePicker.types";
 
 const InputTimePicker: React.FC<Props> = props => {
-  const { labelText, onChange } = props;
-  const format = "hh:mm A";
+  const { labelText, onChange, placeholder } = props;
+  const format = "HH:mm";
 
   return (
     <Styles className="InputTimePicker">
@@ -15,10 +15,12 @@ const InputTimePicker: React.FC<Props> = props => {
         onChange={(value: any) => onChange(value)}
         className="InputTimePicker__picker"
         format={format}
-        minuteStep={60}
         secondStep={60}
-        use12Hours
+        placeholder={placeholder}
       />
+      {props.error && (
+        <div className="InputTimePicker__error-message">{props.error}</div>
+      )}
     </Styles>
   );
 };

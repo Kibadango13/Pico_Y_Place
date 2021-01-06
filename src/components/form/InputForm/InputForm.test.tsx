@@ -5,6 +5,6 @@ import InputForm from "./InputForm";
 
 describe("InputForm", () => {
   it("renders with default props", () => {
-    render(<InputForm />);
+    render(<InputForm labelText="This is the label" onChange={() => {}} />);
   });
 });

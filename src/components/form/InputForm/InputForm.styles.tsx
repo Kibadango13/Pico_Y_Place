@@ -6,7 +6,7 @@ import { InputFormStyledProps as Props } from "./InputForm.types";
 const InputFormStyled = styled.div<Props>`
   display: flex;
   flex-direction: column;
-  margin-bottom: 0.8rem;
+  margin: 2rem 0rem;
   .InputForm {
     &__text {
       padding: 0.2rem 1.5rem;
@@ -19,6 +19,13 @@ const InputFormStyled = styled.div<Props>`
       font-weight: 400;
       letter-spacing: 0.05rem;
     }
+    &__error-message {
+      color: ${palette.error};
+      font-family: Lato;
+      font-size: 1.2rem;
+      font-weight: 400;
+      margin-top: 0.4rem;
+    }
   }
 
   input {
@@ -27,14 +34,14 @@ const InputFormStyled = styled.div<Props>`
     border-radius: 2.2rem;
     border: 0.1rem solid ${palette.secondaryGrayColor};
     padding: 0 2.4rem;
-    font-size: 1.7rem;
+    font-size: 14px;
     letter-spacing: 0.05rem;
     line-height: 4.4rem;
     text-transform: uppercase;
     ::placeholder {
       color: ${palette.ligthGrey};
       font-family: Lato;
-      font-size: 1.7rem;
+      font-size: 14px;
       font-weight: 400;
       letter-spacing: 0.05rem;
       line-height: 4rem;
@@ -51,14 +58,6 @@ const InputFormStyled = styled.div<Props>`
     @media (max-width: 450px) {
       width: 100%;
     }
-  }
-
-  .error-message {
-    color: ${palette.error};
-    font-family: Lato;
-    font-size: 1.2rem;
-    font-weight: 400;
-    margin-top: 0.4rem;
   }
 `;
 

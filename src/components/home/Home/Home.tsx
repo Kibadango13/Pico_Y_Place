@@ -15,6 +15,11 @@ const Home: React.FC<Props> = props => {
       <header className="Home__header" />
       <main className="Home__main">
         <ContentWrapper>
+          <img
+            src="https://www.adipiscor.com/img/uploads/images/pico_y_placa_quito.jpg"
+            alt="Italian Trulli"
+            className="Home__image"
+          />
           <TrafficRegulationPredictor />
         </ContentWrapper>
       </main>
