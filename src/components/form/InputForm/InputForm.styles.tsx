@@ -30,6 +30,7 @@ const InputFormStyled = styled.div<Props>`
     font-size: 1.7rem;
     letter-spacing: 0.05rem;
     line-height: 4.4rem;
+    text-transform: uppercase;
     ::placeholder {
       color: ${palette.ligthGrey};
       font-family: Lato;

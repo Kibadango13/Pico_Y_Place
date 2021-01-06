@@ -5,7 +5,7 @@ import Styles from "./InputForm.styles";
 import { InputFormProps as Props } from "./InputForm.types";
 
 const InputForm: React.FC<Props> = props => {
-  const { labelText } = props;
+  const { labelText, mask } = props;
   return (
     <Styles className="InputForm">
       <div className="form-control__wrapper">
@@ -16,10 +16,8 @@ const InputForm: React.FC<Props> = props => {
           name={props.name}
           value={props.value}
           onChange={props.onChange}
-          placeholder={props.placeholder}
           disabled={props.disabled}
-          mask={props.mask}
-          //maskChar=""
+          mask={mask}
           className={`form-control${
             props.error ? " form-control--error" : ""
           } ${props.className ? props.className : ""}`}

@@ -1,5 +1,4 @@
 // Transportation types and interfaces
-
 export interface LicensePlateControl {
   dia: Day;
   lastDigit: number[];

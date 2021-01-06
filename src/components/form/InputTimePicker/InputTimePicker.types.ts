@@ -3,6 +3,9 @@
 // Component Props
 export interface InputTimePickerProps {
   labelText?: string;
+  value: string;
+  onChange: (value: string) => void;
+  error: string;
 }
 
 // Styled Component Props
