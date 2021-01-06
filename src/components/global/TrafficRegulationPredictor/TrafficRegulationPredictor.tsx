@@ -50,12 +50,12 @@ const TrafficRegulationPredictor: React.FC<Props> = props => {
     });
 
     if (!regulation) {
-      message.error("Existen restricciónes para vehiculo");
+      message.error("Existen restricciónes para su vehiculo");
       setErrors(initErrorValues);
       return undefined;
     }
 
-    message.info("No hay restricciónes para vehiculo");
+    message.info("No hay restricciónes para su vehiculo");
     return undefined;
   };
 
@@ -98,8 +98,8 @@ const TrafficRegulationPredictor: React.FC<Props> = props => {
       />
       <Button
         onClick={() => handleOnSubmit()}
-        className="Home__appointment-button primary-gradient"
-        text="Submit"
+        className="Home__appointment-button lg primary-gradient"
+        text="Validar"
         textAlign="text-center"
       />
     </Styles>

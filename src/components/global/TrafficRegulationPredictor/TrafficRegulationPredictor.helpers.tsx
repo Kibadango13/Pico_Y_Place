@@ -9,8 +9,7 @@ export const validateTrafficRegulation = (values: FormConfig) => {
   const trafficRegulationRules = licensePlateControlRules();
   selectedDay = moment(values.selectedDate).format("dddd");
   selectedDay = selectedDay.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-  const lastDigit = values.licensePlate.slice(-1); // "c";
-
+  const lastDigit = values.licensePlate.slice(-1);
   const trafficRegulationRule = trafficRegulationRules.find(
     rule =>
       rule.day === voca.upperCase(selectedDay) &&
@@ -29,7 +28,7 @@ export const validateTrafficRegulation = (values: FormConfig) => {
   const time = moment(values.selectedHour).format("hh:mm A");
   const selectedTime = moment(time, "hh:mm A");
 
-  const timeFrame = schedule.find((timeFrame: any) => {
+  const timeFrame = schedule.find(timeFrame => {
     const startTime = moment(timeFrame.startTime, "hh:mm A");
     const endTime = moment(timeFrame.endTime, "hh:mm A");
     return selectedTime.isBetween(startTime, endTime, undefined, "[]");
@@ -55,10 +54,6 @@ const validationFormRules = (values: FormConfig) => {
     selectedDateValidation: "",
     selectedHourValidation: ""
   };
-
-  if (licensePlate.length !== 8) {
-    passErrors.licensePlateValidation = "Mínimo 8 caracteres";
-  }
 
   if (licensePlate === "") {
     passErrors.licensePlateValidation = "Este campo es requerido";

@@ -1,3 +1,11 @@
-import HomeContainer from "containers/home/HomeContainer/HomeContainer";
+import React from "react";
 
-export default HomeContainer;
+import HomeLayout from "layout/HomeLayout/HomeLayout";
+
+const HomePage: React.FC<any> = props => {
+  return <HomeLayout />;
+};
+
+HomePage.defaultProps = {};
+
+export default HomePage;

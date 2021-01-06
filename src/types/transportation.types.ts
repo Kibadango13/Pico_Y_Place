@@ -2,7 +2,7 @@
 export interface LicensePlateControl {
   day: Day;
   lastDigit: number[];
-  schedule: any;
+  schedule: Schedule[];
 }
 
 export enum Day {
@@ -13,4 +13,9 @@ export enum Day {
   JUEVES = "JUEVES",
   VIERNES = "VIERNES",
   SABADO = "SABADO"
+}
+
+export interface Schedule {
+  startTime: string;
+  endTime: string;
 }

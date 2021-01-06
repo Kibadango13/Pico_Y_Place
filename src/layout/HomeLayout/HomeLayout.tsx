@@ -1,33 +1,33 @@
 import React from "react";
 import Head from "next/head";
 
+import ContentWrapper from "components/ContentWrapper/ContentWrapper";
 import TrafficRegulationPredictor from "components/global/TrafficRegulationPredictor/TrafficRegulationPredictor";
-import ContentWrapper from "../../ContentWrapper/ContentWrapper";
-import Styles from "./Home.styles";
-import { HomeProps as Props } from "./Home.types";
+import Styles from "./HomeLayout.styles";
+import { HomeLayoutProps as Props } from "./HomeLayout.types";
 
-const Home: React.FC<Props> = props => {
+const HomeLayout: React.FC<Props> = props => {
   return (
-    <Styles className="Home">
+    <Styles className="HomeLayout">
       <Head>
         <title>Pico y Placa</title>
       </Head>
-      <header className="Home__header" />
-      <main className="Home__main">
+      <header className="HomeLayout__header" />
+      <main className="HomeLayout__main">
         <ContentWrapper>
           <img
             src="https://www.adipiscor.com/img/uploads/images/pico_y_placa_quito.jpg"
             alt="Italian Trulli"
-            className="Home__image"
+            className="HomeLayout__image"
           />
           <TrafficRegulationPredictor />
         </ContentWrapper>
       </main>
-      <footer className="Home__footer" />
+      <footer className="HomeLayout__footer" />
     </Styles>
   );
 };
 
-Home.defaultProps = {};
+HomeLayout.defaultProps = {};
 
-export default Home;
+export default HomeLayout;

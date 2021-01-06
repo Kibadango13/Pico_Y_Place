@@ -1,15 +1,15 @@
 import styled from "styled-components";
 import { palette } from "styles/util/variables";
 
-import { HomeStyledProps as Props } from "./Home.types";
+import { HomeLayoutStyledProps as Props } from "./HomeLayout.types";
 
-const HomeStyled = styled.div<Props>`
+const HomeLayoutStyled = styled.div<Props>`
   min-width: var(--sizes-page-minWidth);
   max-width: var(--sizes-page-maxWidth);
   min-height: var(--sizes-page-minHeight);
   display: flex;
   flex-direction: column;
-  .Home {
+  .HomeLayout {
     &__header {
     }
 
@@ -44,4 +44,4 @@ const HomeStyled = styled.div<Props>`
   }
 `;
 
-export default HomeStyled;
+export default HomeLayoutStyled;
