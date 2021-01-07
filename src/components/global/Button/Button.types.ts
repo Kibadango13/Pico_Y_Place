@@ -11,7 +11,8 @@ export interface ButtonProps {
   iconPosition?: string;
   google?: boolean;
   loading?: boolean;
-  loader?: string;
+  loader?: any;
+  testID?: string;
 }
 
 // Styled Component Props

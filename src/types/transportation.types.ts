@@ -1,5 +1,5 @@
 // Transportation types and interfaces
-export interface LicensePlateControl {
+export interface TrafficRestrictionRules {
   day: Day;
   lastDigit: number[];
   schedule: Schedule[];

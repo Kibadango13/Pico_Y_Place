@@ -6,13 +6,14 @@ import { ButtonProps as Props } from "./Button.types";
 const Button: React.FC<Props> = props => {
   const { className, text, textAlign } = props;
   const { onClick, icon, iconPosition } = props;
-  const { loading, loader } = props;
+  const { loading, loader, testID } = props;
 
   return (
     <Styles
       className={`Button ${className} ${textAlign}`}
       onClick={onClick}
       loader={loader}
+      id={testID}
     >
       {text}
       {icon && !loading && (

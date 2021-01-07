@@ -1,8 +1,8 @@
 // Transportation utils funtions and data
-import { Day, LicensePlateControl } from "types/transportation.types";
+import { Day, TrafficRestrictionRules } from "types/transportation.types";
 
-export const licensePlateControlRules = () => {
-  const control: LicensePlateControl[] = [
+export const getTrafficRestrictionRules = () => {
+  const control: TrafficRestrictionRules[] = [
     {
       day: Day.DOMINGO,
       lastDigit: [],

@@ -43,19 +43,20 @@ const TrafficRegulationPredictor: React.FC<Props> = props => {
       return undefined;
     }
 
-    const regulation = validateTrafficRegulation({
+    const restriction = validateTrafficRegulation({
       licensePlate,
       selectedDate,
       selectedHour
     });
 
-    if (!regulation) {
-      message.error("Existen restricciónes para su vehiculo");
+    if (!restriction) {
+      //Vehiculo has no restrictions
+      message.info("No hay restricciónes para su vehiculo");
       setErrors(initErrorValues);
       return undefined;
     }
-
-    message.info("No hay restricciónes para su vehiculo");
+    //Vehiculo has restrictions
+    message.error("Existen restricciónes para su vehiculo");
     return undefined;
   };
 
@@ -84,7 +85,7 @@ const TrafficRegulationPredictor: React.FC<Props> = props => {
         mask="aaaa-9999"
       />
       <InputDatePicker
-        labelText="Date"
+        labelText="Fecha"
         error={selectedDateValidation}
         value={selectedDate}
         onChange={(event: any) => setSelectedDate(event)}
@@ -101,6 +102,7 @@ const TrafficRegulationPredictor: React.FC<Props> = props => {
         className="Home__appointment-button lg primary-gradient"
         text="Validar"
         textAlign="text-center"
+        testID="continueButton"
       />
     </Styles>
   );
